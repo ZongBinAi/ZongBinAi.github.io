@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/aliyun_tomcat_open1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/aliyun_tomcat_open2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/aliyun_tomcat_open3.png">
-<meta property="og:updated_time" content="2018-04-15T12:02:13.640Z">
+<meta property="og:updated_time" content="2018-04-15T12:03:43.813Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux安装jdk和tomcat | AiZongbin">
 <meta name="twitter:description" content="jdk 安装jdk下载 先查看Linux系统是多少位（32位/64位）：getconf  LONG_BIT。再从JDK官网（http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html），我这里以jdk7为例，下载JDK 7，Linux 64位下载jdk-7u60-linux-x64.tar.">
@@ -224,7 +224,7 @@ classes that you can use:
 <li><p>删除jdk-7u60-linux-x64.tar.gz</p>
 <h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4></li>
 <li><p>打开/etc/profile（sudo vim /etc/profile）在最后面添加如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.7.0_60  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=/usr/java/jdk1.7.0_60/jre  </span><br><span class="line">exportCLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JRE_HOME</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/jdk1.7.0_60  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=/usr/java/jdk1.7.0_60/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar:<span class="variable">$JRE_HOME</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>让配置生效：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
