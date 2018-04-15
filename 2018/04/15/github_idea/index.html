@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      idea中将项目与github关联 | AiZongbin 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="###创建github  在github中创建一个账号 下载并安装git 安装成功后打开Git Bash，输入下列命令，设置git全局用户名和邮箱 在IDEA中设置Git，在’File--&amp;gt;Setting-&amp;gt;Version Control--&amp;gt;Git--&amp;gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="idea中将项目与github关联 | AiZongbin">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/github_idea/index.html">
+<meta property="og:site_name" content="AiZongbin">
+<meta property="og:description" content="###创建github  在github中创建一个账号 下载并安装git 安装成功后打开Git Bash，输入下列命令，设置git全局用户名和邮箱 在IDEA中设置Git，在’File--&amp;gt;Setting-&amp;gt;Version Control--&amp;gt;Git--&amp;gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea7.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea10.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea12.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea13.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea14.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea15.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea16.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea17.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea18.png">
+<meta property="og:updated_time" content="2018-04-15T13:44:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="idea中将项目与github关联 | AiZongbin">
+<meta name="twitter:description" content="###创建github  在github中创建一个账号 下载并安装git 安装成功后打开Git Bash，输入下列命令，设置git全局用户名和邮箱 在IDEA中设置Git，在’File--&amp;gt;Setting-&amp;gt;Version Control--&amp;gt;Git--&amp;gt;Path to Git executable选择你的git安装后的git.exe文件，然后点击Test，测试是否设置成功">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AiZongbin</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Technical summary and share
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/ZongBinAi" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+	 <li class="navigation__item">
+        <a href="https://weibo.com/u/5663600032?refer_flag=1001030201_" title="weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+     </li>
+    <li class="navigation__item">
+        <a href="https://blog.csdn.net/grave2015" title="CSDN">
+          <i class='icon cs-icon-qzone'></i>
+          <span class="label">CSDN</span>
+        </a>
+     </li>
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">idea中将项目与github关联</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-04-15" class="post-meta__date date">2018-04-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>###创建github</p>
+<ul>
+<li><a href="https://github.com/join?source=header-home" target="_blank" rel="noopener">在github中创建一个账号</a></li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载并安装git</a></li>
+<li>安装成功后打开<code>Git Bash</code>，输入下列命令，设置git全局用户名和邮箱<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea1.png" alt="enter image description here"></li>
+<li>在IDEA中设置Git，在’<code>File--&gt;Setting-&gt;Version Control--&gt;Git--&gt;Path to Git executable</code>选择你的git安装后的<code>git.exe</code>文件，然后点击Test，测试是否设置成功<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea2.png" alt="enter image description here"></li>
+<li>在IDEA中设置<code>GitHub</code>，<code>File--&gt;Setting-&gt;Version Control--&gt;GibHub</code><br>　　<code>Host：github.com</code><br>　　<code>Token：点击Create API Token</code>，输入在<code>github</code>中注册的用户名和密码生成token<br>　　点击Test，测试是否连接成功<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea3.png" alt="enter image description here"></li>
+<li>创建本地仓库，<code>VCS--&gt;Import into Version Control--&gt;Create Git Repository...</code><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea4.png" alt="enter image description here"></li>
+<li>在弹框中选中项目所在的位置，点击OK，此时项目文件全部变成红色（若选中其他位置，则<code>git--&gt;add</code>不可点选，不知为何）<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea5.png" alt="enter image description here"></li>
+<li>上传项目到本地仓库，项目右键选择<code>Git--&gt;add</code>，此时项目文件变成绿色，此时文件只是处于暂存区，并没有真正进入到版本库中<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea6.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea7.png" alt="enter image description here"></li>
+<li>　项目右键<code>Git--&gt; Commit Directory</code>，在弹窗中输入<code>Commit Message</code>，点击<code>commit</code>，此时项目文件从暂存区真正进入版本库中，项目文件变成白色<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea8.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea9.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea10.png" alt="enter image description here"></li>
+<li>上传项目到GitHub中，<code>VCS--&gt;Import into Version Control--&gt;Share Project on GitHub</code>，在弹框中输入仓库名和描述，点击<code>Share</code>，即可是上传，中间会弹窗输入<code>GitHub</code>的用户名和密码（已输入过用户名和密码并记住的不会再次弹框输入），上传成功后<code>IDEA</code>右下角会给出提示<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea11.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea12.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea13.png" alt="enter image description here"></li>
+<li>提交修改文件到GitHub<br>新增文件（红色），右键–&gt;<code>Git--&gt;add</code>，将新增的文件加入本地仓库，此时文件变绿色<br>修改文件（蓝色）<br>在项目右键–&gt;<code>Git--&gt;Commit Directory</code>，查看有变动的文件并输入<code>Commit Message</code>，点击<code>Commit and Push...</code><br>提交后会进行语法检查，若存在错误或警告会给出确认提示，点击<code>Commit</code>，弹出Push框，点击<code>Push</code>，上传<code>GitHub</code>成功<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea14.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea15.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea16.png" alt="enter image description here"><br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea17.png" alt="enter image description here"></li>
+<li>如果要是多人协作开发，那么不仅要将自己的代码上传，还要将队友的代码down下来，根据idea的套路，他的上传时push，那么下载就是pull了<br><img src="https://raw.githubusercontent.com/ZongBinAi/BlogPhotos/master/imags/idea18.png" alt="enter image description here"></li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+	<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNTc0Ni8xMjI4Mg==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
