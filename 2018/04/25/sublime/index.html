@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      sublime添加右击菜单栏 | AiZongbin 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="方法一（推荐）把以下代码，复制到SublimeText3的安装目录，然后重命名为：sublime_addright.inf，然后右击安装就可以了。PS：重命名文件之前，需要先在工具–文件夹选项，查看中，把隐藏已知文件类型的扩展名前边的复选框不勾选。123456789101112[Version]Signature=&quot;$Windows NT$&quot;[DefaultInstall]AddReg=Subli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sublime添加右击菜单栏 | AiZongbin">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/sublime/index.html">
+<meta property="og:site_name" content="AiZongbin">
+<meta property="og:description" content="方法一（推荐）把以下代码，复制到SublimeText3的安装目录，然后重命名为：sublime_addright.inf，然后右击安装就可以了。PS：重命名文件之前，需要先在工具–文件夹选项，查看中，把隐藏已知文件类型的扩展名前边的复选框不勾选。123456789101112[Version]Signature=&quot;$Windows NT$&quot;[DefaultInstall]AddReg=Subli">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-25T11:59:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sublime添加右击菜单栏 | AiZongbin">
+<meta name="twitter:description" content="方法一（推荐）把以下代码，复制到SublimeText3的安装目录，然后重命名为：sublime_addright.inf，然后右击安装就可以了。PS：重命名文件之前，需要先在工具–文件夹选项，查看中，把隐藏已知文件类型的扩展名前边的复选框不勾选。123456789101112[Version]Signature=&quot;$Windows NT$&quot;[DefaultInstall]AddReg=Subli">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AiZongbin</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Technical summary and share
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/ZongBinAi" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+	 <li class="navigation__item">
+        <a href="https://weibo.com/u/5663600032?refer_flag=1001030201_" title="weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+     </li>
+    <li class="navigation__item">
+        <a href="https://blog.csdn.net/grave2015" title="CSDN">
+          <i class='icon cs-icon-qzone'></i>
+          <span class="label">CSDN</span>
+        </a>
+     </li>
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">sublime添加右击菜单栏</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-04-25" class="post-meta__date date">2018-04-25</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="方法一（推荐）"><a href="#方法一（推荐）" class="headerlink" title="方法一（推荐）"></a>方法一（推荐）</h3><p>把以下代码，复制到SublimeText3的安装目录，然后重命名为：sublime_addright.inf，然后右击安装就可以了。PS：重命名文件之前，需要先在工具–文件夹选项，查看中，把隐藏已知文件类型的扩展名前边的复选框不勾选。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Version]</span><br><span class="line">Signature=<span class="string">"<span class="variable">$Windows</span> NT$"</span></span><br><span class="line"></span><br><span class="line">[DefaultInstall]</span><br><span class="line">AddReg=SublimeText3</span><br><span class="line"></span><br><span class="line">[SublimeText3]</span><br><span class="line">hkcr,<span class="string">"*\\shell\\SublimeText3"</span>,,,<span class="string">"用 SublimeText3 打开"</span></span><br><span class="line">hkcr,<span class="string">"*\\shell\\SublimeText3\\command"</span>,,,<span class="string">""</span><span class="string">"%1%\sublime_text.exe"</span><span class="string">" "</span><span class="string">"%%1"</span><span class="string">" %%*"</span></span><br><span class="line">hkcr,<span class="string">"Directory\shell\SublimeText3"</span>,,,<span class="string">"用 SublimeText3 打开"</span></span><br><span class="line">hkcr,<span class="string">"*\\shell\\SublimeText3"</span>,<span class="string">"Icon"</span>,0x20000,<span class="string">"%1%\sublime_text.exe, 0"</span></span><br><span class="line">hkcr,<span class="string">"Directory\shell\SublimeText3\command"</span>,,,<span class="string">""</span><span class="string">"%1%\sublime_text.exe"</span><span class="string">" "</span><span class="string">"%%1"</span><span class="string">""</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>把以下代码，复制到SublimeText3的安装目录，然后重命名为：sublime_addright.reg，然后双击就可以了。PS:需要把里边的Sublime的安装目录，替换成实际的Sublime安装目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\SublimeText3]</span><br><span class="line">@=<span class="string">"用 SublimeText3 打开"</span></span><br><span class="line"><span class="string">"Icon"</span>=<span class="string">"D:\\Program Files\\Sublime Text 3\\sublime_text.exe,0"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\*\shell\SublimeText3\<span class="built_in">command</span>]</span><br><span class="line">@=<span class="string">"D:\\Program Files\\Sublime Text 3\\sublime_text.exe %1"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\shell\SublimeText3]</span><br><span class="line">@=<span class="string">"用 SublimeText3 打开"</span></span><br><span class="line"><span class="string">"Icon"</span>=<span class="string">"D:\\Program Files\\Sublime Text 3\\sublime_text.exe,0"</span></span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\shell\SublimeText3\<span class="built_in">command</span>]</span><br><span class="line">@=<span class="string">"D:\\Program Files\\Sublime Text 3\\sublime_text.exe %1"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="删除右击菜单栏"><a href="#删除右击菜单栏" class="headerlink" title="删除右击菜单栏"></a>删除右击菜单栏</h3><p>把以下代码，复制到SublimeText3的安装目录，然后重命名为：sublime_delright.reg，然后双击就可以了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line">[-HKEY_CLASSES_ROOT\*\shell\SublimeText3]</span><br><span class="line">[-HKEY_CLASSES_ROOT\Directory\shell\SublimeText3]</span><br></pre></td></tr></table></figure></p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+	<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNTc0Ni8xMjI4Mg==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+
+
+</article>
+
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
