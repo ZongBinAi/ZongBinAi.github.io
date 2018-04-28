@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      大话设计模式总结 | AiZongbin 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="代码无错就是优？——简单工厂模式 所有类型都放到一个工厂中生产，存在大量的if-else判断以及switch判断。商场促销——策略模式 它定义了算法家族，分别封装起来，让他们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的用户。优点：简化了单元测试，因为每个算法都是有自己的类，可以通过字节的接口单独测试。策略模式就是用来封装算法的，但再实践中，我们发现可以用它来封装几乎任何类型的规则，只">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大话设计模式总结 | AiZongbin">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/desiger/index.html">
+<meta property="og:site_name" content="AiZongbin">
+<meta property="og:description" content="代码无错就是优？——简单工厂模式 所有类型都放到一个工厂中生产，存在大量的if-else判断以及switch判断。商场促销——策略模式 它定义了算法家族，分别封装起来，让他们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的用户。优点：简化了单元测试，因为每个算法都是有自己的类，可以通过字节的接口单独测试。策略模式就是用来封装算法的，但再实践中，我们发现可以用它来封装几乎任何类型的规则，只">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-28T01:53:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大话设计模式总结 | AiZongbin">
+<meta name="twitter:description" content="代码无错就是优？——简单工厂模式 所有类型都放到一个工厂中生产，存在大量的if-else判断以及switch判断。商场促销——策略模式 它定义了算法家族，分别封装起来，让他们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的用户。优点：简化了单元测试，因为每个算法都是有自己的类，可以通过字节的接口单独测试。策略模式就是用来封装算法的，但再实践中，我们发现可以用它来封装几乎任何类型的规则，只">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AiZongbin</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Technical summary and share
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/ZongBinAi" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+	 <li class="navigation__item">
+        <a href="https://weibo.com/u/5663600032?refer_flag=1001030201_" title="weibo">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+     </li>
+    <li class="navigation__item">
+        <a href="https://blog.csdn.net/grave2015" title="CSDN">
+          <i class='icon cs-icon-qzone'></i>
+          <span class="label">CSDN</span>
+        </a>
+     </li>
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">大话设计模式总结</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-04-28" class="post-meta__date date">2018-04-28</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h4 id="代码无错就是优？——简单工厂模式"><a href="#代码无错就是优？——简单工厂模式" class="headerlink" title="代码无错就是优？——简单工厂模式"></a>代码无错就是优？——简单工厂模式</h4><ul>
+<li>所有类型都放到一个工厂中生产，存在大量的if-else判断以及switch判断。<h4 id="商场促销——策略模式"><a href="#商场促销——策略模式" class="headerlink" title="商场促销——策略模式"></a>商场促销——策略模式</h4></li>
+<li>它定义了算法家族，分别封装起来，让他们之间可以互相替换，此模式让算法的变化，不会影响到使用算法的用户。<br>优点：简化了单元测试，因为每个算法都是有自己的类，可以通过字节的接口单独测试。<br>策略模式就是用来封装算法的，但再实践中，我们发现可以用它来封装几乎任何类型的规则，只要在分析过程中听到需要在不同时间应用不同的业务规则，就可以考虑使用策略模式处理这种变化的可能性。<h4 id="拍摄UFO——单一职责原则"><a href="#拍摄UFO——单一职责原则" class="headerlink" title="拍摄UFO——单一职责原则"></a>拍摄UFO——单一职责原则</h4></li>
+<li>就一个类而言，应该仅有一个引起它变化的原因。<br>如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这些类的完成其他职责的能力，这种耦合会导致脆弱的设计，当变化发生时，涉及会遭受到意想不到的破坏。<h4 id="考研求职两不误——开放-封闭原则"><a href="#考研求职两不误——开放-封闭原则" class="headerlink" title="考研求职两不误——开放-封闭原则"></a>考研求职两不误——开放-封闭原则</h4></li>
+<li>是说软件实体（类、模块、函数等等）应该可以扩展，但是不可修改。<br>对于扩展是开放的，对于更改是封闭的。</li>
+<li>无论模块是多么“封闭“，都会存在一些无法对之封闭的变化，既然不可能完全封闭，设计人员必须对于他设计的模块应对哪种变化封闭做出选择。他必须先猜测出最可能发生变化种类，然后构造抽象来隔离哪些变化。</li>
+<li>开放-封闭原则时面向对象设计的核心所在，遵循这个原则可以带来面向对象技术所声称巨大好处，也就是可维护、可扩展、可复用、灵活性好。开发人员应该仅对程序中呈现出频率变化的那些部分做出抽象，然而，对于应用程序中的每个部分都刻意地进行抽象同样不是一个好主意，拒绝不成熟的抽象和抽象本身一样重要。<h4 id="会修电脑不会修收音机——依赖倒置原则"><a href="#会修电脑不会修收音机——依赖倒置原则" class="headerlink" title="会修电脑不会修收音机——依赖倒置原则"></a>会修电脑不会修收音机——依赖倒置原则</h4></li>
+<li>高层模块不应该依赖低层模块。两个都应该依赖抽象。</li>
+<li>抽象不应该依赖细节，细节应该依赖抽象。<h4 id="里氏代换原则：子类类型必须能够替换他们的父类型。"><a href="#里氏代换原则：子类类型必须能够替换他们的父类型。" class="headerlink" title="里氏代换原则：子类类型必须能够替换他们的父类型。"></a>里氏代换原则：子类类型必须能够替换他们的父类型。</h4></li>
+<li>一个软件实体如果使用的是一个父类话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化。<br>*依赖倒置其实可以说是面向对象设计的标志，用哪种语言编写程序不重要，如果编写时考虑的都是如何针对抽象编程而不是针对细节编程，即程序中所有的依赖关系都是终止与抽象类或接口，那就是面向对象的设计，反之就是过程化的设计。<h4 id="穿什么有这么重要？——装饰模式"><a href="#穿什么有这么重要？——装饰模式" class="headerlink" title="穿什么有这么重要？——装饰模式"></a>穿什么有这么重要？——装饰模式</h4></li>
+<li>动态的给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。</li>
+<li>装饰模式是为已有的功能动态的添加更多功能的一种方式。<h4 id="为别人做嫁衣——代理模式"><a href="#为别人做嫁衣——代理模式" class="headerlink" title="为别人做嫁衣——代理模式"></a>为别人做嫁衣——代理模式</h4></li>
+<li>为其他对象提供一种代理以控制对这个对象的访问。</li>
+<li>远程代理，也就是为一个对象在不同的地址空间提供局部代表，这样可以隐藏一个对象存在于不同的地址空间的事实。</li>
+<li>虚拟代理，是根据需要创建开销很大的对象，通过它来存放实例化需要很长时间的真是对象。</li>
+<li>安全代理，用来控制真实对象访问时的权限。</li>
+<li>只能指引，是指当调用真实的对象时，代理处理另外一些事<h4 id="雷锋依然在人间——工厂发方法模式"><a href="#雷锋依然在人间——工厂发方法模式" class="headerlink" title="雷锋依然在人间——工厂发方法模式"></a>雷锋依然在人间——工厂发方法模式</h4></li>
+<li>定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。</li>
+<li>每个工厂生产一种商品。</li>
+<li>工厂方法模式是定义一个用于创建对象的接口，让子类决定实例化哪一个类。</li>
+<li>简单工厂模式最大的优点在工厂类种包含了必须要的逻辑判断，根据客户端的选择条件动态实例化相关的类，对于客户端来说，去除了与具体产品的依赖。</li>
+<li>工厂方法克服了简单工厂违背开放-封闭原则的缺点，有保持了封装对象创建过程的优点。<h4 id="简历复印——原型模式"><a href="#简历复印——原型模式" class="headerlink" title="简历复印——原型模式"></a>简历复印——原型模式</h4></li>
+<li>用原型实例指定创建对象的种类，并通过拷贝这些原型创建新的对象。</li>
+<li>一般在初始化信息不发生变化的情况下，克隆使最好的办法，这既隐藏了对象创建的细节，又对性能大大的提高。</li>
+<li>浅复制：被复制对象的所有变量都含有与原来的对象相同的值，而所有的对其他对象的引用都仍然指向原来对象。<h4 id="考题抄错会做也白搭——模板方法模式"><a href="#考题抄错会做也白搭——模板方法模式" class="headerlink" title="考题抄错会做也白搭——模板方法模式"></a>考题抄错会做也白搭——模板方法模式</h4></li>
+<li>定义一个操作中的算法骨架，而将一些步骤延迟到子类种，模板方法使得子类可以不改变一个算法的结构即可重定义算法的模型特定步骤。</li>
+<li>模板方法模式就是通过把不变的行为搬一个到超类，去除子类重复的代码来实现它的优势。提供一个很好的代码复用平台。<h4 id="无熟人难办事——迪米特法则"><a href="#无熟人难办事——迪米特法则" class="headerlink" title="无熟人难办事——迪米特法则"></a>无熟人难办事——迪米特法则</h4></li>
+<li>如果两个类不彼此直接通信，那么这两个类就不应该发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。</li>
+<li>类之间的耦合越弱，越有利于复用，一个处在弱耦合的类被修改，不会对有关系的类造成波及。<h4 id="牛市股票还会亏钱？——外观模式"><a href="#牛市股票还会亏钱？——外观模式" class="headerlink" title="牛市股票还会亏钱？——外观模式"></a>牛市股票还会亏钱？——外观模式</h4></li>
+<li>为子系统中的每一组接口提供一个一致的界面，此模式定义一个高层接口，这个接口使得这一子系统更加容易使用。<br>即不买股票，而买基金，让专业人员去操作。<h4 id="好菜每回味不同——建造者模式"><a href="#好菜每回味不同——建造者模式" class="headerlink" title="好菜每回味不同——建造者模式"></a>好菜每回味不同——建造者模式</h4></li>
+<li>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</li>
+<li>如果我们用了建造者模式，那么用户就只需要指定需要建造的类型就可以得到他们，而具体建造过程和细节就不需要知道了。</li>
+<li>主要用于创建一些复杂的对象，这些对象内部构建间的建造顺序通常是稳定的，但对象内部的构建通常面临着复杂的变化。</li>
+<li>建造者模式的好处就是使得建造代码与表示代码分离，由于建造者隐蔽了该产品是如何组装的，都已需要改变一个产品内部表示，至于要再定义一个具体的建造者就可以了。<h4 id="老板回来，我不知道——观察者模式"><a href="#老板回来，我不知道——观察者模式" class="headerlink" title="老板回来，我不知道——观察者模式"></a>老板回来，我不知道——观察者模式</h4></li>
+<li>定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象，这个主题对象在状态放生变化的时候，会通知所有观察者对象，使他们能够自动更新自己。</li>
+<li>什么时候使用：</li>
+<li>当一个对象的改变需要同时改变其他对象时，而且不知道有多少个对象有待改变，应该考虑用观察者模式。</li>
+<li>观察者所做的工作其实就是在解除耦合，让耦合的双方都在依赖于抽象，而不是依赖于具体，从而使得各自的变化都不会影响另一边的变化。<h4 id="就不能不换DB吗？——抽象工厂模式"><a href="#就不能不换DB吗？——抽象工厂模式" class="headerlink" title="就不能不换DB吗？——抽象工厂模式"></a>就不能不换DB吗？——抽象工厂模式</h4></li>
+<li>提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类。</li>
+<li>抽象工厂对象产品族的概念，增加新的产品线容易，但是无法增加新的产品。<br>反射技术。<h4 id="无尽加班何时休——状态模式。"><a href="#无尽加班何时休——状态模式。" class="headerlink" title="无尽加班何时休——状态模式。"></a>无尽加班何时休——状态模式。</h4></li>
+<li>当一个对象的内在状态改变是允许改变其行为，这个对象看起来是改变了类。</li>
+<li>状态模式主要解决的是当控制一个对象状态转化的条件表达式过于复杂时的情况，把状态的判断逻辑转移到表示不同的状态的一系列类当中，可以把复杂的判断逻辑简化。   </li>
+<li>状态模式的好处是将于特定状态相关的行为局部化，并且将不同的状态的行为分割开。</li>
+<li>当一个对象的行为取决于它的状态，并且他必须在运行时刻根据状态改变它的行为，就可以考虑使用状态模式了。<h4 id="在NBA我需要翻译——适配器模式（在开发后期维护时才用）"><a href="#在NBA我需要翻译——适配器模式（在开发后期维护时才用）" class="headerlink" title="在NBA我需要翻译——适配器模式（在开发后期维护时才用）"></a>在NBA我需要翻译——适配器模式（在开发后期维护时才用）</h4></li>
+<li>将一个类的接口转换成客户希望的另外的一个接口，Adapter模式使得原本由于接口不兼容而不能在一起工作的那些类可以在一起工作。<h4 id="如果在回到从前（游戏）——备忘录模式"><a href="#如果在回到从前（游戏）——备忘录模式" class="headerlink" title="如果在回到从前（游戏）——备忘录模式"></a>如果在回到从前（游戏）——备忘录模式</h4></li>
+<li>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可以将该对象恢复到原先保存的状态。</li>
+<li>适用于功能比较复杂，但需要维护或记录属性历史的类，或者需要保存的属性只是众多属性中的一小部分时</li>
+<li>缺点：角色状态需要完整的存储到备忘录对象中，如果状态数据很大很多，那么资源消耗上，备忘录对象会非常耗内存。<h4 id="分公司-以部门（公司管理系统）——组合模式"><a href="#分公司-以部门（公司管理系统）——组合模式" class="headerlink" title="分公司=以部门（公司管理系统）——组合模式"></a>分公司=以部门（公司管理系统）——组合模式</h4></li>
+<li>将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象的使用具有一致性。</li>
+<li>何时使用：<pre><code>需求中时体现部分与整体层次结构时，以及你希望用户可以忽略组合对象于单个对象的不同，统一的使用组合结构中的所有对象时，就应该考虑用组合模式。
+</code></pre><h4 id="想走？可以！先买票——迭代器模式"><a href="#想走？可以！先买票——迭代器模式" class="headerlink" title="想走？可以！先买票——迭代器模式"></a>想走？可以！先买票——迭代器模式</h4></li>
+<li>提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露对象内部表示。<h4 id="有些类也需要计划生育——单例模式"><a href="#有些类也需要计划生育——单例模式" class="headerlink" title="有些类也需要计划生育——单例模式"></a>有些类也需要计划生育——单例模式</h4></li>
+<li>保证体一个类仅有一个实例。并提供一个访问他的全局访问点。</li>
+<li><p>通常我们可以让一个全局变量使得一个对象被访问，但他不能防止你实例化多个对象，一个最好的办法就是，让类自身负责保存它的唯一实例，这个类可以保证没有其他实例可以被创建，并且他可以提供一个访问该实例的方法。<br>第一种形式: 定义一个类，它的构造函数为private的，它有一个static的private的该类变量，在类初始化时实例话，通过一个public的getInstance方法获取对它的引用,继而调用其中的方法。<br><code>饿汉式</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Single s=<span class="keyword">new</span> Single();</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="title">Single</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">return</span> s;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有final相当于锁，Single永远指向new Single();<br><code>懒汉式</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">static</span> Single s=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="title">Single</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span>(s==<span class="keyword">null</span>)</span><br><span class="line"></span><br><span class="line">                     s=<span class="keyword">new</span> Single();</span><br><span class="line"></span><br><span class="line">              <span class="keyword">return</span> s;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先赋值null，然后再new，这叫延迟加载,这样多线程会出现安全问题。</p>
+</li>
+<li>所以在多线程访问是要用synchronized修饰getInastance()，但是每个线程要获得</li>
+<li>实例都要判断锁，比较低效，可以用同步代码块修饰if判断即把先判断锁改成了</li>
+<li>先判断if<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">static</span> Single s=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="title">Single</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Single <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span>(s==<span class="keyword">null</span>)</span><br><span class="line"></span><br><span class="line">                     s=<span class="keyword">new</span> Single();</span><br><span class="line"></span><br><span class="line">              <span class="keyword">return</span> s;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">static</span> Single s=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="title">Single</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span>(s==<span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">                     <span class="keyword">synchronized</span>(Single.class)&#123;</span><br><span class="line"></span><br><span class="line">                            <span class="keyword">if</span>(s==<span class="keyword">null</span>)</span><br><span class="line"></span><br><span class="line">                                   s=<span class="keyword">new</span> Single();</span><br><span class="line"></span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">return</span> s;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="手机软件何时统一——桥接模式"><a href="#手机软件何时统一——桥接模式" class="headerlink" title="手机软件何时统一——桥接模式"></a>手机软件何时统一——桥接模式</h4><ul>
+<li>将抽象部分与它的实现部分分离，使他们都可以独立的变化。</li>
+<li>很多情况下，用继承会带来麻烦，比如，对象的继承关系是在编译是就定义好了，所以无法运行时改变从父类继承的实现，子类的实现与它的父类有非常紧密的依赖关系，以至于父类实现中的任何变化必然会导致子类发上变化，当你需要复用子类时，如果继承下来的实现不适合解决新的问题，则父类必须重写或被其他更适合类替换，这种依赖关系限制了灵活性并最终限制了复用性。</li>
+<li>聚合表示一种弱拥有关系，体现了A对象可以包含B对象，但B对象不是A对象的一部分。（大雁and雁群）</li>
+<li>合成表示一种强拥有关系，体现了严格的部分和整体的关系，部分和整体的生命周期一样。（大雁and翅膀）<h4 id="烤羊肉串引来的思考（服务员-gt-厨师）——命令模式"><a href="#烤羊肉串引来的思考（服务员-gt-厨师）——命令模式" class="headerlink" title="烤羊肉串引来的思考（服务员-&gt;厨师）——命令模式"></a>烤羊肉串引来的思考（服务员-&gt;厨师）——命令模式</h4></li>
+<li>将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数话，对请求排队或记录请求日志，以及支持可撤销的操作。<h4 id="加薪非要老总批——职责链模式"><a href="#加薪非要老总批——职责链模式" class="headerlink" title="加薪非要老总批——职责链模式"></a>加薪非要老总批——职责链模式</h4></li>
+<li>时多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系，将这个对象像练成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止。<br>世界需要和平——中介者模式</li>
+<li>用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显示相互引用，从而使其耦合松散，而且独立的改变他们之间的交互关系。</li>
+<li>优点使集中控制，缺点也是他，集中在一个模块中很复杂。<h4 id="项目多也别傻做（网站开发）——享元模式"><a href="#项目多也别傻做（网站开发）——享元模式" class="headerlink" title="项目多也别傻做（网站开发）——享元模式"></a>项目多也别傻做（网站开发）——享元模式</h4></li>
+<li>运用共享技术支持大量细粒度的对象。</li>
+<li>如果一个应用程序使用了大量的对象，而大量的这些对象造成了很大的存储开销时应该考虑使用，还有就是对象的大多数状态可以外部状态，如果删除对象的外部状态，那么可以用相对较少的共享对象取代很多组对象，此时可以考虑使用享元模式。</li>
+<li>在某些情况下，对象的数量可能会太多，从而导致了运行时的资源与性能损耗。<h4 id="其实你不懂老板的心——解释器模式"><a href="#其实你不懂老板的心——解释器模式" class="headerlink" title="其实你不懂老板的心——解释器模式"></a>其实你不懂老板的心——解释器模式</h4></li>
+<li>给定一个语言，定义它的文法的一种表示，并定一个解释器，这个解释器使用该表示来解释语言中的句子。<h4 id="男人和女人——访问者模式"><a href="#男人和女人——访问者模式" class="headerlink" title="男人和女人——访问者模式"></a>男人和女人——访问者模式</h4></li>
+<li>表示一个作用于某对象结构中的个元素的操作，它使你可以不改变各元素的类的前提下定义作用于这些元素的新操作。</li>
+<li>访问者模式适用于数据结构相对稳定的体统。</li>
+<li>他把数据结构和作用与结构上的操作之间的耦合解脱开，使得操作集合可以相对自由的演化。</li>
+<li>优点：增加新的操作很容易，因为增加新的操作就意味着增加一个新的访问者。访问者模式将有关的行为集中到一个访问者对象中。</li>
+<li>缺点：使增加新的数据结构变得困难。</li>
+</ul>
+<h4 id="创建模式："><a href="#创建模式：" class="headerlink" title="创建模式："></a>创建模式：</h4><ul>
+<li>就是创建对象的模型，抽象了实例化的过程。<br>他帮助一个系统独立于如何创建组合和表示它的哪些对象<br>简单工厂、工厂方法、抽象工厂、单例模式、建造者、原型</li>
+</ul>
+<h4 id="结构模式："><a href="#结构模式：" class="headerlink" title="结构模式："></a>结构模式：</h4><ul>
+<li>为了解决怎样组装现有的类，设计他们的交互方式，从而达到实现一个功能的目的<br>适配器模式、装饰器、代理模式、外观模式、桥接、组合、享元</li>
+</ul>
+<h4 id="行为模式："><a href="#行为模式：" class="headerlink" title="行为模式："></a>行为模式：</h4><ul>
+<li>行为模型或涉及到算法和对象间职责分配，行为模式描述了对象和类的模式以及他们之间的通信<br>策略、模板、观察者、迭代器、责任链、命令、备忘录、状态、访问者、中介者、解释器模式</li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+	<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNTc0Ni8xMjI4Mg==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</section>
+
+
+</article>
+
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
